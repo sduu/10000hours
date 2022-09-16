@@ -1,0 +1,579 @@
+@font-face {
+    font-family: 'OTEnjoystoriesBA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OTEnjoystoriesBA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2') format('woff2'), url('https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff') format('woff'),
+        url('https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf') format('opentype');
+}
+
+/* Common */
+:root {
+    --main-bg: #5b2386;
+    --btn-primary-bg: #fcee21;
+    --btn-secondary-bg: #fff;
+    --btn-color: #5b2386;
+    --btn-active-color: #230838;
+    --btn-close-color: #5b2386;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: GmarketSansMedium, '맑은 고딕', 'malgun gothic', 'Apple SD Gothic Neo', 'Apple SD 산돌고딕 Neo', 'Microsoft NeoGothic', 'Droid sans', sans-serif;
+    color: #fff;
+    background-color: var(--main-bg);
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+.screen-out {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.dimmed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dimmed.is-active {
+    opacity: 1;
+    visibility: visible;
+    transition: 0.4s ease-in-out;
+}
+
+.wrapper {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Button */
+[class*='btn-style-'] {
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+    font-size: 1.4rem;
+    font-family: GmarketSansBold;
+    color: var(--btn-color);
+}
+
+[class*='btn-style-']:active {
+    opacity: 0.8;
+}
+
+.btn-style-primary {
+    background-color: var(--btn-primary-bg);
+}
+
+.btn-style-secondary {
+    background-color: var(--btn-secondary-bg);
+}
+
+/* Header */
+.header-cont {
+    height: 20rem;
+    overflow: hidden;
+    background: url('../img/clock.png') no-repeat top 4.1rem center / 12.5rem auto;
+}
+
+.header-cont .header-tit {
+    width: 26.7rem;
+    margin: 7.6rem auto 0;
+}
+
+.header-cont .header-tit img {
+    display: block;
+    width: 100%;
+}
+
+/* Main*/
+.main-cont {
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.intro-sec .intro-tit {
+    width: 29.7rem;
+}
+
+.intro-sec .intro-desc {
+    line-height: 1.93;
+    margin-top: 5.7rem;
+    letter-spacing: -0.015em;
+    background: url('../img/quotes-m.png') no-repeat top 2.8rem center / 29.8rem auto;
+}
+
+.intro-sec .intro-desc span {
+    display: block;
+}
+
+.intro-sec .intro-desc strong {
+    font-family: GmarketSansBold;
+}
+
+.intro-sec .intro-input {
+    line-height: 3.1;
+    margin-top: 5.7rem;
+    letter-spacing: -0.015em;
+}
+
+.intro-sec .intro-input span {
+    display: block;
+}
+
+.intro-sec .intro-input input {
+    width: 15.6rem;
+    padding: 1.1rem 0.5rem 0.7rem;
+    border: 0;
+    border-radius: 0.7rem;
+    box-sizing: border-box;
+    text-align: center;
+    vertical-align: middle;
+    color: #333;
+    font-size: 1.4rem;
+    font-family: GmarketSansMedium;
+}
+
+.intro-sec .intro-input input::placeholder {
+    color: #babcbe;
+    font-size: 1.4rem;
+}
+
+.intro-sec .btn-group {
+    display: inline-block;
+    position: relative;
+    margin-top: 4.4rem;
+    margin-left: -0.7rem;
+}
+
+.intro-sec .btn-check {
+    line-height: 1.3;
+    padding: 1.8rem 3.8rem 1.4rem;
+    border-radius: 1.3rem;
+    letter-spacing: -0.015em;
+}
+
+.intro-sec .btn-check span {
+    display: block;
+}
+
+.intro-sec .deco-check {
+    position: absolute;
+    top: 3rem;
+    right: -4.9rem;
+    width: 4.3rem;
+}
+
+.intro-sec .btn-check:hover + .deco-check {
+    animation: click 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes click {
+    100% {
+        transform: rotate(-10deg);
+    }
+}
+
+.loading-sec {
+    max-height: 0;
+    overflow: hidden;
+}
+
+.loading-sec .loading-img {
+    width: 10rem;
+    margin: 5rem auto 0;
+}
+
+.loading-sec.is-active {
+    max-height: 100vh;
+    transition: max-height 0.4s ease-in-out;
+}
+
+.loading-sec.is-active .loading-img {
+    position: relative;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.training-sec {
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.training-sec.is-active {
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s linear;
+}
+
+.training-sec .training-result {
+    margin-top: 5.9rem;
+    line-height: 1.62;
+}
+
+.training-sec .training-result strong {
+    vertical-align: -0.12em;
+    font-size: 2.4rem;
+    font-family: GmarketSansBold;
+}
+
+.training-sec .btn-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 4.5rem;
+    margin-left: 0.3rem;
+}
+
+.training-sec .btn-group button {
+    margin-right: 1.3rem;
+    padding: 1rem 0 0.9rem;
+    border-radius: 5.6rem;
+}
+
+.training-sec .btn-open {
+    width: 18.6rem;
+}
+
+.training-sec .btn-share {
+    width: 9.2rem;
+}
+
+/* Footer */
+.footer-cont {
+    padding: 8.3rem 1rem 3.2rem;
+}
+
+.footer-cont .footer-logo a {
+    display: block;
+    width: 9.1rem;
+    margin: 0 auto;
+}
+
+.footer-cont .footer-logo img {
+    display: block;
+    width: 100%;
+}
+
+.footer-cont .copyright {
+    display: block;
+    line-height: 1.2;
+    margin-top: 1.9rem;
+    text-align: center;
+    opacity: 0.7;
+    letter-spacing: -0.015em;
+    word-break: keep-all;
+    font-size: 0.9rem;
+    font-family: 'Noto Sans KR';
+}
+
+/* Modal */
+.modal-cont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 33rem;
+    height: 50rem;
+    padding: 4rem 4.5rem 4rem;
+    border-radius: 3rem;
+    box-sizing: border-box;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.modal-cont.is-active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.modal-cont img {
+    width: 100%;
+}
+
+.modal-tit {
+    width: 23.3rem;
+}
+
+.modal-cont .btn-go {
+    display: block;
+    width: 100%;
+    line-height: 1.3;
+    padding: 1.8rem 1rem 1.3rem;
+    border-radius: 1.3rem;
+    box-sizing: border-box;
+}
+
+.modal-cont .btn-go span {
+    display: block;
+}
+
+.modal-cont .btn-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2.5rem;
+}
+
+.modal-cont .btn-close::before,
+.modal-cont .btn-close::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--btn-close-color);
+}
+
+.modal-cont .btn-close::before {
+    transform: rotate(45deg);
+}
+
+.modal-cont .btn-close::after {
+    transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 360px) {
+    html {
+        font-size: 8px;
+    }
+}
+
+@media screen and (min-width: 835px) {
+    .header-cont {
+        height: 43.5rem;
+        background-position: top 12rem center;
+        background-size: 26.5rem auto;
+    }
+
+    .header-cont .header-tit {
+        width: 56.4rem;
+        margin: 19.4rem auto 0;
+    }
+
+    .header-cont .header-tit img {
+        display: block;
+        width: 100%;
+    }
+
+    /* Main*/
+    .main-cont {
+        font-size: 2rem;
+        font-size: 2.4rem;
+    }
+
+    .intro-sec .intro-tit {
+        width: 48.6rem;
+    }
+
+    .intro-sec .intro-desc {
+        line-height: 1.7;
+        margin-top: 7.8rem;
+        font-size: 1.8rem;
+        background: url('../img/quotes.png') no-repeat top 1.3rem center / 48.3rem auto;
+    }
+
+    .intro-sec .intro-desc strong {
+        line-height: 1.25;
+        font-size: 2.4rem;
+    }
+
+    .intro-sec .intro-input {
+        line-height: 3.3;
+        margin-top: 8.9rem;
+        letter-spacing: 0;
+    }
+
+    .intro-sec .intro-input span {
+        display: inline-block;
+    }
+
+    .intro-sec .intro-input input {
+        width: 22.8rem;
+        padding: 1.5rem 0.5rem 1.2rem;
+        font-size: 2.4rem;
+    }
+
+    .intro-sec .intro-input input::placeholder {
+        font-size: 2.4rem;
+    }
+
+    .intro-sec .btn-group {
+        margin-top: 10.3rem;
+        margin-left: 0;
+    }
+
+    .intro-sec .btn-check {
+        width: auto;
+        padding: 1.9rem 4.8rem 1.6rem;
+        border-radius: 5.6rem;
+        letter-spacing: 0;
+        font-size: 2.4rem;
+    }
+
+    .intro-sec .btn-check span {
+        display: inline-block;
+    }
+
+    .intro-sec .deco-check {
+        top: 1.4rem;
+        right: -7.2rem;
+        width: 6.4rem;
+    }
+
+    .loading-sec .loading-img {
+        width: 15rem;
+        margin: 12rem auto 0;
+    }
+
+    .training-sec .training-result {
+        margin-top: 14.5rem;
+        line-height: 1.23;
+    }
+
+    .training-sec .training-result strong {
+        vertical-align: -0.21em;
+        font-size: 7.2rem;
+    }
+
+    .training-sec .btn-group {
+        margin-top: 11.2rem;
+        margin-left: 1.8rem;
+    }
+
+    .training-sec .btn-group button {
+        margin-right: 1.8rem;
+        padding: 1.4rem 0 1.6rem;
+        font-size: 2.4rem;
+    }
+
+    .training-sec .btn-open {
+        width: 35.6rem;
+    }
+
+    .training-sec .btn-share {
+        width: 19.1rem;
+    }
+
+    /* Footer */
+    .footer-cont {
+        padding: 13rem 0 7rem;
+    }
+
+    .footer-cont .footer-logo a {
+        width: 12.5rem;
+    }
+
+    .footer-cont .footer-logo img {
+        display: block;
+        width: 100%;
+    }
+
+    .footer-cont .copyright {
+        line-height: 1.35;
+        margin-top: 2.1rem;
+        opacity: 1;
+        font-size: 1.2rem;
+    }
+
+    /* Modal */
+    .modal-cont {
+        justify-content: flex-end;
+        width: 80rem;
+        height: 80rem;
+        padding: 7.6rem 14.6rem 6.8rem;
+        transform: translate3D(-50%, -50%, 0) scale(0.75);
+    }
+
+    .modal-cont .modal-tit {
+        width: 39.8rem;
+        margin-bottom: auto;
+    }
+
+    .modal-cont .modal-visual {
+        width: auto;
+        margin-bottom: 7.4rem;
+    }
+
+    .modal-cont .btn-go {
+        padding: 1.9rem 0 1.6rem;
+        border-radius: 5.6rem;
+        font-size: 2.4rem;
+    }
+
+    .modal-cont .btn-go span {
+        display: inline-block;
+    }
+
+    .modal-cont .btn-close {
+        position: absolute;
+        top: 3rem;
+        right: 5rem;
+    }
+
+    .modal-cont .btn-close::before,
+    .modal-cont .btn-close::after {
+        height: 3rem;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    /* Modal */
+    .modal-cont {
+        transform: translate3D(-50%, -50%, 0) scale(1);
+    }
+}
