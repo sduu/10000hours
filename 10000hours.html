@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>1만 시간의 법칙</title>
+        <link rel="shortcut icon" href="img/favicon.ico" type="img/x-icon" />
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/10000hours.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header-cont">
+                <h1 class="header-tit">
+                    <img src="img/title.png" alt="1만 시간의 법칙" />
+                </h1>
+            </header>
+            <main class="main-cont">
+                <section class="intro-sec">
+                    <h2 class="screen-out">1만 시간의 법칙 소개</h2>
+                    <img class="intro-tit" src="img/sub-title.png" alt='"연습은 어제의 당신보다 당신을 더 낫게 만든다."' />
+                    <p class="intro-desc">
+                        <span><strong>1만 시간의 법칙</strong>은 </span>
+                        <span>어떤 분야의 전문가가 되기 위해서는 </span>
+                        <span>최소한 1만 시간의 훈련이 필요하다는 법칙이다.</span>
+                    </p>
+                    <div class="intro-input">
+                        나는
+                        <input id="input-filed" type="text" placeholder="예)프로그래밍" title="분야" required />
+                        전문가가 될 것이다. <br />
+                        <span>그래서 앞으로 매일 하루에</span>
+                        <input id="input-hour" type="number" placeholder="예)5" title="시간" required />
+                        시간씩 훈련할 것이다.
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn-check btn-style-primary" type="button"><span>나는 며칠 동안 훈련을 해야 </span>1만 시간이 될까?</button>
+                        <img class="deco-check" src="img/click.png" alt="" />
+                    </div>
+                </section>
+
+                <section class="loading-sec">
+                    <h2 class="screen-out">훈련 일수 계산 중 로딩</h2>
+                    <img class="loading-img" src="img/loading.png" alt="" />
+                </section>
+
+                <section class="training-sec">
+                    <h2 class="screen-out">훈련 일수 계산 결과</h2>
+                    <p class="training-result">
+                        당신은
+                        <strong class="result_field"></strong>
+                        전문가가 되기 위해서<br />
+                        대략
+                        <strong class="result_day"></strong>
+                        일 이상 훈련하셔야 합니다! :)
+                    </p>
+                    <div class="btn-group">
+                        <button class="btn-open btn-style-primary" type="button" data-target="modalTraining">훈련하러 가기 GO!GO!</button>
+                        <button class="btn-share btn-style-secondary" type="button">공유하기</button>
+                    </div>
+                </section>
+            </main>
+            <footer class="footer-cont">
+                <h2 class="footer-logo">
+                    <a href="#"><img src="img/logo.png" alt="weniv" /></a>
+                </h2>
+                <small class="copyright">
+                    ※ 본 서비스 내 이미지 및 콘텐츠의 저작권은 주식회사 WeNiv에 있습니다.<br />
+                    수정 및 재배포, 무단 도용 시 법적인 문제가 발생할 수 있습니다.
+                </small>
+            </footer>
+
+            <!-- 훈련하러 가기 GO!GO! 모달 시작 -->
+            <aside class="modal-cont" id="modalTraining">
+                <picture class="modal-tit">
+                    <source srcset="img/modal-title-m.png" media="all and (max-width: 834px)" />
+                    <img src="img/modal-title.png" alt="화이팅!! 당신의 꿈을 응원합니다!" />
+                </picture>
+                <img class="modal-visual" src="img/licat.png" alt="응원하는 라이캣 캐릭터" />
+                <a class="btn-go btn-style-primary" href="#"><span>종료하고 진짜</span> 훈련하러 가기 GO!GO!</a>
+                <button class="btn-close" type="button" aria-label="팝업 창 닫기"></button>
+            </aside>
+            <!-- // 훈련하러 가기 GO!GO! 모달 끝 -->
+
+            <div class="dimmed" aria-hidden="true"></div>
+        </div>
+
+        <script src="js/10000hours.js"></script>
+    </body>
+</html>
