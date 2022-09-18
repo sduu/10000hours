@@ -69,6 +69,9 @@ function openModal() {
     }
 
     currentModalTarget.addEventListener('keydown', checkKeyPressed);
+
+    /* 모달이 활성화 상태일 시 스크롤 막기 */
+    disableScroll();
 }
 
 function closeModal() {
@@ -79,6 +82,9 @@ function closeModal() {
     currentModalButton.focus();
 
     currentModalTarget.removeEventListener('keydown', checkKeyPressed);
+
+    /* 모달이 비활성화 상태일 시 스크롤 막기 해제 */
+    enableScroll();
 }
 
 /* 모달 키보드 조작 */
@@ -99,6 +105,17 @@ function checkKeyPressed(e) {
             [...focusable].at(-1).focus();
         }
     }
+}
+
+/* 스크롤 막기 */
+function disableScroll() {
+    document.body.style.overflow = 'hidden';
+    document.querySelector('html').scrollTop = window.scrollY;
+}
+
+/* 스크롤 허용 */
+function enableScroll() {
+    document.body.style.overflow = 'visible';
 }
 
 /* 공유하기 버튼 클릭 시 URL 복사 */
