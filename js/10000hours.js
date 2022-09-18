@@ -48,7 +48,6 @@ function openResult() {
 const openButton = document.querySelector('.training-sec .btn-open');
 const closeButton = document.querySelector('.modal-cont .btn-close');
 const dimmed = document.querySelector('.dimmed');
-let isModalOpened = false;
 let currentModalTarget;
 let currentModalButton;
 let focusable;
@@ -56,10 +55,8 @@ let focusable;
 openButton.addEventListener('click', openModal);
 closeButton.addEventListener('click', closeModal);
 dimmed.addEventListener('click', closeModal);
-document.addEventListener('keydown', e => checkKeyPressed(e));
 
 function openModal() {
-    isModalOpened = true;
     currentModalButton = this;
     currentModalTarget = document.querySelector(`#${this.dataset.target}`);
     currentModalTarget.classList.add('is-active');
@@ -70,21 +67,22 @@ function openModal() {
     if (focusable) {
         focusable[0].focus();
     }
+
+    currentModalTarget.addEventListener('keydown', checkKeyPressed);
 }
 
 function closeModal() {
-    isModalOpened = false;
     currentModalTarget.classList.remove('is-active');
     dimmed.classList.remove('is-active');
 
     /* 마지막으로 눌렀던 모달 열기 버튼에 focus 트리거 */
     currentModalButton.focus();
+
+    currentModalTarget.removeEventListener('keydown', checkKeyPressed);
 }
 
 /* 모달 키보드 조작 */
 function checkKeyPressed(e) {
-    if (!isModalOpened) return;
-
     /* ESC */
     if (e.keyCode == 27) {
         closeModal();
