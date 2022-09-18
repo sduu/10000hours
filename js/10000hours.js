@@ -44,7 +44,7 @@ function openResult() {
     }, 1500);
 }
 
-/* 모달 */
+/* 모달 열기 or 닫기 */
 const openButton = document.querySelector('.training-sec .btn-open');
 const closeButton = document.querySelector('.modal-cont .btn-close');
 const dimmed = document.querySelector('.dimmed');
@@ -77,9 +77,11 @@ function closeModal() {
     currentModalTarget.classList.remove('is-active');
     dimmed.classList.remove('is-active');
 
+    /* 마지막으로 눌렀던 모달 열기 버튼에 focus 트리거 */
     currentModalButton.focus();
 }
 
+/* 모달 키보드 조작 */
 function checkKeyPressed(e) {
     if (!isModalOpened) return;
 
@@ -101,7 +103,7 @@ function checkKeyPressed(e) {
     }
 }
 
-/* 공유하기 버튼 */
+/* 공유하기 버튼 클릭 시 URL 복사 */
 const shareButton = document.querySelector('.btn-share');
 
 shareButton.addEventListener('click', copyUrl);
