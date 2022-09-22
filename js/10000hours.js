@@ -127,14 +127,39 @@ const shareButton = document.querySelector('.btn-share');
 shareButton.addEventListener('click', copyUrl);
 
 function copyUrl() {
-    let url = document.location.href;
-    const textarea = document.createElement('textarea');
+    const url = document.location.href;
 
-    document.body.appendChild(textarea);
-    textarea.value = url;
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
+    if (navigator.clipboard !== undefined) {
+        // clipboard API 사용
+        navigator.clipboard
+            .writeText(url)
+            .then(function () {
+                alert('URL 복사가 완료되었습니다!');
+            })
+            .catch(function (err) {
+                console.log('클립보드에 복사 실패', err);
+            });
+    } else {
+        // execCommand 사용
+        const textarea = document.createElement('textarea');
 
-    alert('URL 복사가 완료되었습니다');
+        textarea.value = url;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+
+        // 모바일 브라우저(ios) 호환
+        textarea.setSelectionRange(0, 99999);
+
+        // 선택한 텍스트를 클립보드에 복사
+        document.execCommand('copy');
+
+        // 모바일 브라우저(ios) 호환
+        textarea.setSelectionRange(0, 0);
+
+        document.body.removeChild(textarea);
+        alert('URL 복사가 완료되었습니다!');
+    }
 }
