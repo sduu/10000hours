@@ -15,14 +15,17 @@ checkButton.addEventListener('click', function () {
 function checkInputValue() {
     if (fieldInput.value == '') {
         alert('전문가가 되고 싶은 분야를 입력하세요.');
+        fieldInput.focus();
         return false;
     }
     if (hourInput.value == '') {
         alert('훈련 시간을 입력하세요.');
+        hourInput.focus();
         return false;
     }
     if (hourInput.value <= 0 || hourInput.value > 24) {
         alert('훈련 시간은 0초과 24이하 값으로 작성해 주세요.');
+        hourInput.focus();
         return false;
     }
 
@@ -62,7 +65,7 @@ function openModal() {
     currentModalTarget.classList.add('is-active');
     dimmed.classList.add('is-active');
 
-    /* focus 가능한 요소가 있을 시 해당 요소에 focus 트리거 */
+    // focus 가능한 요소가 있을 시 해당 요소에 focus 트리거
     focusable = currentModalTarget.querySelectorAll('a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])');
     if (focusable) {
         focusable[0].focus();
@@ -70,7 +73,7 @@ function openModal() {
 
     currentModalTarget.addEventListener('keydown', checkKeyPressed);
 
-    /* 모달이 활성화 상태일 시 스크롤 막기 */
+    // 모달이 활성화 상태일 시 스크롤 막기
     disableScroll();
 }
 
@@ -78,29 +81,29 @@ function closeModal() {
     currentModalTarget.classList.remove('is-active');
     dimmed.classList.remove('is-active');
 
-    /* 마지막으로 눌렀던 모달 열기 버튼에 focus 트리거 */
+    // 마지막으로 눌렀던 모달 열기 버튼에 focus 트리거
     currentModalButton.focus();
 
     currentModalTarget.removeEventListener('keydown', checkKeyPressed);
 
-    /* 모달이 비활성화 상태일 시 스크롤 막기 해제 */
+    // 모달이 비활성화 상태일 시 스크롤 막기 해제
     enableScroll();
 }
 
 /* 모달 키보드 조작 */
 function checkKeyPressed(e) {
-    /* ESC */
+    // ESC
     if (e.keyCode == 27) {
         closeModal();
     }
 
-    /* Tab */
+    // Tab
     if (e.keyCode == 9) {
         if (!e.shiftKey && document.activeElement == [...focusable].at(-1)) {
             e.preventDefault();
             focusable[0].focus();
         } else if (e.shiftKey && document.activeElement == focusable[0]) {
-            /* Tab + Shift */
+            // Tab + Shift
             e.preventDefault();
             [...focusable].at(-1).focus();
         }
